@@ -16,4 +16,10 @@ Route::group(['namespace' => 'Home'], function () {
 	Route::get("dologin","LoginController@dologin");//登录处理
 	Route::get("company","ChatController@company");//公司列表
 	Route::get("chat/{id}","ChatController@chat");//公司聊天室
+	Route::post("getConsultClient","ChatController@getConsultClient");//获取该房间的客服client_id（为个聊）
+
+
+
+
+
 });

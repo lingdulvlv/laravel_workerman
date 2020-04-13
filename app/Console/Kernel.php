@@ -14,7 +14,9 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         //
-        \App\Console\Commands\WorkermanCommand::class
+        \App\Console\Commands\WorkermanCommand::class,
+        \App\Console\Commands\addrecord::class,
+        \App\Console\Commands\addjoin::class,
     ];
 
     /**
@@ -27,6 +29,9 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        // $schedule->command('record:add')->everyMinute();
+        $schedule->command('record:add')->everyFiveMinutes();
+        $schedule->command('join:add')->everyFiveMinutes();
     }
 
     /**

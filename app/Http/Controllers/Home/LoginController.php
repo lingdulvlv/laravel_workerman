@@ -16,7 +16,7 @@ class LoginController extends Controller
     public function dologin(Request $request)
     {
         $input = $request->all();
-        $res = \DB::table('user')->where(['name'=>$input['name'], 'passwd'=>$input['passwd']])->first();
+        $res = \DB::table('user')->where(['name'=>$input['name'], 'passwd'=>md5($input['passwd'])])->first();
         if($res){
             $request->session()->put('loginuser', $res);
             $request->session()->save();
@@ -25,14 +25,6 @@ class LoginController extends Controller
             return redirect('/login');
         }
     }
-
-
-
-
-
-
-
-
 
 
 
